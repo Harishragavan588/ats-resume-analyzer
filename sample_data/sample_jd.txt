@@ -1,0 +1,26 @@
+Position: Senior Python Backend Engineer
+
+We are looking for an experienced Python Backend Engineer to join our growing team.
+
+Required Skills:
+- Python (5+ years)
+- Flask or FastAPI for REST API development
+- SQL databases: PostgreSQL or MySQL
+- Docker and container orchestration (Kubernetes a plus)
+- Git version control
+- Agile / Scrum methodology
+- Experience with CI/CD pipelines (Jenkins, GitHub Actions)
+- Amazon Web Services (AWS) or Google Cloud Platform (GCP)
+
+Responsibilities:
+- Design and develop scalable REST APIs
+- Collaborate with frontend engineers on API contracts
+- Write unit and integration tests (pytest)
+- Participate in code reviews and architectural discussions
+- Deploy and monitor services in cloud infrastructure
+
+Nice to have:
+- GraphQL API experience
+- Redis caching
+- Machine learning pipeline experience
+- Microservices architecture

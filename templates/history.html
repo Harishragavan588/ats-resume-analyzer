@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analysis History — ATS Resume Analyzer</title>
+  <meta name="description" content="View all previous resume analyses and compare before-and-after results."/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>"/>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="/" class="nav-logo">
+        <div class="logo-icon">📄</div>
+        <span>ATS Analyzer</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="/">🏠 Analyze</a></li>
+        <li><a href="/history" class="active">📋 History</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+  <div class="loading-overlay" id="loadingOverlay" role="status" aria-live="polite">
+    <div class="spinner"></div>
+    <div class="loading-text">Loading…</div>
+    <div class="loading-sub"></div>
+  </div>
+
+  <!-- Page header -->
+  <div class="hero">
+    <h1>Analysis History</h1>
+    <p>All previous resume analyses stored in the database. Select two to compare before and after.</p>
+  </div>
+
+  <div class="container">
+
+    <!-- History table -->
+    <div class="card mb-2">
+      <div class="card-title">
+        <div class="card-icon">📋</div>
+        Previous Analyses
+      </div>
+
+      <div id="historyEmpty" class="empty-state hidden" role="status">
+        <div class="empty-state-icon">📭</div>
+        <h3>No analyses yet</h3>
+        <p>Upload a resume on the <a href="/">Analyze page</a> to get started.</p>
+      </div>
+
+      <div style="overflow-x:auto">
+        <table class="history-table" id="historyTable" aria-label="Analysis history">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Filename</th>
+              <th>ATS Score</th>
+              <th>Keywords</th>
+              <th>Similarity</th>
+              <th>Category</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="historyTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Before/After Comparison -->
+    <div class="card mb-2">
+      <div class="card-title">
+        <div class="card-icon">📊</div>
+        Before &amp; After Comparison
+      </div>
+      <p class="text-muted mb-2" style="font-size:.855rem">
+        Select two analyses of the same candidate and job to compare progress.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:1rem;align-items:end">
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" for="comparePrev">Previous (Original)</label>
+          <select id="comparePrev">
+            <option value="">— select —</option>
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label class="form-label" for="compareNew">Updated Resume</label>
+          <select id="compareNew">
+            <option value="">— select —</option>
+          </select>
+        </div>
+        <button id="runCompareBtn" class="btn btn-primary" style="white-space:nowrap">
+          Compare →
+        </button>
+      </div>
+
+      <div id="comparisonResult" class="hidden mt-2"></div>
+    </div>
+
+    <div style="height:2.5rem"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js"></script>
+</body>
+</html>
